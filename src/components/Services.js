@@ -2,40 +2,28 @@ import React from "react";
 
 const services = [
   {
+    title: "LED Display Ads",
+    description:
+      "Engage audiences with high-visibility LED display advertisements in public spaces.",
+    icon: "📺",
+  },
+  {
+    title: "Tea Cup Printing Ads",
+    description:
+      "Innovative advertising on tea cups for maximum brand exposure in cafes and offices.",
+    icon: "☕",
+  },
+  {
     title: "Digital Marketing",
     description:
       "Boost your brand’s online presence with our expert digital marketing strategies.",
     icon: "📈",
   },
   {
-    title: "Branding & Identity",
+    title: "Website Building",
     description:
-      "Create a strong and recognizable brand identity with our design expertise.",
-    icon: "🎨",
-  },
-  {
-    title: "Social Media Management",
-    description:
-      "Grow your audience and engagement with our social media management services.",
-    icon: "📱",
-  },
-  {
-    title: "Content Creation",
-    description:
-      "High-quality content tailored to your brand to captivate and engage audiences.",
-    icon: "✍️",
-  },
-  {
-    title: "SEO Optimization",
-    description:
-      "Improve your search rankings and increase traffic with our SEO services.",
-    icon: "🔍",
-  },
-  {
-    title: "Ad Campaigns",
-    description:
-      "Maximize ROI with targeted ad campaigns across multiple platforms.",
-    icon: "💰",
+      "Get a professionally designed website tailored to your business needs.",
+    icon: "💻",
   },
 ];
 

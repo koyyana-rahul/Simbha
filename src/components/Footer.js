@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="container mx-auto flex flex-col items-center px-4">
         <div className="flex space-x-6 mb-2 md:mb-0 justify-center items-center">
           <a
-            href="https://wa.me/8790359681"
+            href="https://wa.me/+918790359681"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center space-x-2 hover:text-green-400 transition-colors"
