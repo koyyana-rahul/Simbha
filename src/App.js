@@ -6,6 +6,11 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ThemeProvider from "./components/ThemeProvider";
+import Led from "./components/Led";
+import TeaCup from "./components/TeaCup";
+import DigitalMarketing from "./components/DigitalMarketing";
+import WebsiteBuilding from "./components/WebsiteBuilding";
+import AdOnWheels from "./components/AdOnWheels";
 
 const App = () => {
   return (
@@ -31,6 +36,31 @@ export const appRouter = createBrowserRouter([
       {
         path: "services",
         element: <Serivces />,
+        
+      },
+      {
+        path: "services/led",
+        element: <Led />
+      },
+      {
+        path: "services/tea_cup",
+        element: <TeaCup/>
+      },
+      {
+        path: "services/digital_marketing",
+        element: <DigitalMarketing />
+      },
+      {
+        path: "services/website_building",
+        element: <WebsiteBuilding />
+      },
+      {
+        path: "services/ad_on_wheels",
+        element: <AdOnWheels />
+      },
+      {
+        path: "services/contact",
+        element: <Contact />
       },
       {
         path: "about",
