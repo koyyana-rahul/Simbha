@@ -15,27 +15,15 @@ const fadeUp = {
   }),
 };
 
-const iconAnimation = {
-  animate: {
-    y: [0, -8, 0],
-    rotate: [0, 5, 0],
-  },
-  transition: {
-    repeat: Infinity,
-    duration: 2,
-    ease: "easeInOut",
-  },
-};
-
 const Contact = () => {
   return (
     <motion.div
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      className="relative dark:bg-gray-900 bg-white text-gray-900 dark:text-white min-h-screen pt-20 pb-10 px-4 sm:px-6 flex flex-col items-center overflow-hidden"
+      className="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen pt-20 pb-10 px-4 sm:px-6 flex flex-col items-center overflow-hidden"
     >
-      {/* Animated Background Blobs */}
+      {/* Background Blobs */}
       <motion.div
         className="absolute w-72 h-72 bg-yellow-300 opacity-20 rounded-full top-10 -left-28 blur-3xl"
         animate={{ x: [0, 40, 0], y: [0, 20, 0] }}
@@ -48,13 +36,9 @@ const Contact = () => {
       />
 
       {/* Heading */}
-      <motion.div
-        className="max-w-4xl text-center"
-        variants={fadeUp}
-        custom={0}
-      >
+      <motion.div className="max-w-4xl text-center" variants={fadeUp} custom={0}>
         <motion.h1
-          className="text-4xl font-extrabold mb-6 text-yellow-500 dark:text-yellow-400"
+          className="text-3xl sm:text-4xl font-extrabold mb-6 text-yellow-500 dark:text-yellow-400"
           variants={fadeUp}
           custom={0}
         >
@@ -62,12 +46,11 @@ const Contact = () => {
         </motion.h1>
 
         <motion.p
-          className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto"
+          className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto"
           variants={fadeUp}
           custom={1}
         >
-          Have questions, suggestions, or just want to say hello? We’re always
-          here to help and connect.
+          Have questions, suggestions, or just want to say hello? We’re always here to help and connect.
         </motion.p>
       </motion.div>
 
@@ -77,75 +60,50 @@ const Contact = () => {
         variants={fadeUp}
         custom={2}
       >
-        {/* Email */}
-        <motion.a
-          href="mailto:Simbhaadagency.info@gmail.com"
-          className="bg-gray-100 dark:bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-yellow-300/30 transition-all duration-300 text-center cursor-pointer"
-          whileHover={{ scale: 1.05 }}
-          variants={fadeUp}
-          custom={2}
-        >
-          <div className="mb-5 flex justify-center">
-            <motion.div
-              className="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center shadow-lg ring-2 ring-yellow-100 dark:ring-yellow-900"
-              {...iconAnimation}
-            >
-              <Mail className="text-white w-7 h-7" />
-            </motion.div>
-          </div>
-          <h3 className="text-2xl font-semibold text-yellow-600 dark:text-yellow-400">Email</h3>
-          <p className="text-gray-700 dark:text-gray-300 mt-2">
-            Simbhaadagency.info@gmail.com
-          </p>
-        </motion.a>
-
-        {/* WhatsApp */}
-        <motion.a
-          href="https://wa.me/918790359681"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-gray-100 dark:bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-yellow-300/30 transition-all duration-300 text-center cursor-pointer"
-          whileHover={{ scale: 1.05 }}
-          variants={fadeUp}
-          custom={3}
-        >
-          <div className="mb-5 flex justify-center">
-            <motion.div
-              className="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center shadow-lg ring-2 ring-yellow-100 dark:ring-yellow-900"
-              {...iconAnimation}
-              transition={{ ...iconAnimation.transition, duration: 2.4 }}
-            >
-              <Phone className="text-white w-7 h-7" />
-            </motion.div>
-          </div>
-          <h3 className="text-2xl font-semibold text-yellow-600 dark:text-yellow-400">WhatsApp</h3>
-          <p className="text-gray-700 dark:text-gray-300 mt-2">+91 8790359681</p>
-        </motion.a>
-
-        {/* Location */}
-        <motion.a
-          href="https://www.google.com/maps/place/Gajuwaka,+Visakhapatnam,+Andhra+Pradesh"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-gray-100 dark:bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-yellow-300/30 transition-all duration-300 text-center cursor-pointer"
-          whileHover={{ scale: 1.05 }}
-          variants={fadeUp}
-          custom={4}
-        >
-          <div className="mb-5 flex justify-center">
-            <motion.div
-              className="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center shadow-lg ring-2 ring-yellow-100 dark:ring-yellow-900"
-              {...iconAnimation}
-              transition={{ ...iconAnimation.transition, duration: 2.2 }}
-            >
-              <MapPin className="text-white w-7 h-7" />
-            </motion.div>
-          </div>
-          <h3 className="text-2xl font-semibold text-yellow-600 dark:text-yellow-400">Location</h3>
-          <p className="text-gray-700 dark:text-gray-300 mt-2">
-            Gajuwaka, Visakhapatnam, Andhra Pradesh
-          </p>
-        </motion.a>
+        {[
+          {
+            href: "mailto:Simbhaadagency.info@gmail.com",
+            Icon: Mail,
+            label: "Email",
+            value: "simbhaadagency.info@gmail.com",
+          },
+          {
+            href: "https://wa.me/918790359681",
+            Icon: Phone,
+            label: "WhatsApp",
+            value: "+91 8790359681",
+          },
+          {
+            href: "https://www.google.com/maps/place/Gajuwaka,+Visakhapatnam,+Andhra+Pradesh",
+            Icon: MapPin,
+            label: "Location",
+            value: "Gajuwaka, Visakhapatnam, Andhra Pradesh",
+          },
+        ].map(({ href, Icon, label, value }, index) => (
+          <motion.a
+            key={label}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-6 sm:p-8 rounded-xl shadow-md hover:shadow-yellow-300/30 transition-all duration-300 text-center cursor-pointer 
+              backdrop-blur-md border border-gray-200 bg-white/50 dark:bg-gray-800 dark:border-gray-700"
+            whileHover={{ scale: 1.05 }}
+            variants={fadeUp}
+            custom={index + 2}
+          >
+            <div className="mb-5 flex justify-center">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center shadow-lg ring-2 ring-yellow-100 dark:ring-yellow-900">
+                <Icon className="text-white w-6 h-6 sm:w-7 sm:h-7" />
+              </div>
+            </div>
+            <h3 className="text-xl sm:text-2xl font-semibold text-yellow-600 dark:text-yellow-400">
+              {label}
+            </h3>
+            <p className="text-sm sm:text-base md:text-lg text-gray-700 dark:text-gray-300 mt-2 break-words">
+              {value}
+            </p>
+          </motion.a>
+        ))}
       </motion.div>
     </motion.div>
   );

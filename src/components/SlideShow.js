@@ -28,6 +28,7 @@ const images = [
 const Slideshow = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(2);
+  const [direction, setDirection] = useState(1); // 1 for next, -1 for prev
 
   // Handle responsiveness
   useEffect(() => {
@@ -52,10 +53,12 @@ const Slideshow = () => {
   }, [currentIndex, slidesToShow]);
 
   const goToNextSlide = () => {
+    setDirection(1);
     setCurrentIndex((prev) => (prev + slidesToShow) % images.length);
   };
 
   const goToPrevSlide = () => {
+    setDirection(-1);
     setCurrentIndex((prev) =>
       (prev - slidesToShow + images.length) % images.length
     );
@@ -65,6 +68,21 @@ const Slideshow = () => {
     return Array.from({ length: slidesToShow }, (_, i) => {
       return images[(currentIndex + i) % images.length];
     });
+  };
+
+  const slideVariants = {
+    initial: (dir) => ({
+      opacity: 0,
+      x: dir > 0 ? 100 : -100,
+    }),
+    animate: {
+      opacity: 1,
+      x: 0,
+    },
+    exit: (dir) => ({
+      opacity: 0,
+      x: dir > 0 ? -100 : 100,
+    }),
   };
 
   return (
@@ -85,13 +103,15 @@ const Slideshow = () => {
       </button>
 
       {/* Images */}
-      <AnimatePresence mode="wait">
+      <AnimatePresence custom={direction} mode="wait">
         <motion.div
           key={currentIndex}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5 }}
+          custom={direction}
+          variants={slideVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          transition={{ duration: 0.6 }}
           className="flex gap-4 justify-center items-center"
         >
           {getVisibleImages().map((img, i) => (

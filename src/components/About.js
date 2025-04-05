@@ -149,7 +149,7 @@ const About = () => {
           className="text-3xl font-semibold text-yellow-600 dark:text-yellow-400"
           variants={fadeUp}
         >
-          Meet Our Team
+          Our Team
         </motion.h2>
         <motion.p
           className="text-gray-700 dark:text-gray-300 mt-4"

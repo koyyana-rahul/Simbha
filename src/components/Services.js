@@ -7,8 +7,33 @@ import {
   TrendingUp,
   Globe,
   Truck,
+  Video,
   ExternalLink,
 } from "lucide-react";
+
+// Animation variants
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, scale: 0.8, rotateY: 90 },
+  visible: (i) => ({
+    opacity: 1,
+    scale: 1,
+    rotateY: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.9,
+      ease: [0.2, 0.8, 0.2, 1],
+    },
+  }),
+};
 
 const services = [
   {
@@ -46,56 +71,45 @@ const services = [
     icon: Truck,
     pagePath: "/services/ad_on_wheels",
   },
-];
-
-const cardVariants = {
-  hidden: { opacity: 0, scale: 0.8, rotateY: 90 },
-  visible: (i) => ({
-    opacity: 1,
-    scale: 1,
-    rotateY: 0,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.9,
-      ease: [0.2, 0.8, 0.2, 1],
-    },
-  }),
-};
-
-const headingVariants = {
-  hidden: { clipPath: "inset(0 100% 0 0)", opacity: 0 },
-  visible: {
-    clipPath: "inset(0 0 0 0)",
-    opacity: 1,
-    transition: { duration: 1, ease: "easeOut" },
+  {
+    title: "Making Ad Films",
+    description:
+      "Professional ad film production to tell your brand’s story with impact and creativity.",
+    icon: Video,
+    pagePath: "/services/ad_films",
   },
-};
+];
 
 const Services = () => {
   return (
     <div className="relative mt-16 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen px-4 sm:px-6 lg:px-10 py-10 overflow-hidden">
       {/* Background animation blobs */}
       <motion.div
-        className="absolute w-64 h-64 bg-yellow-300 opacity-20 rounded-full top-10 -left-20 blur-3xl"
+        className="absolute w-64 h-64 bg-yellow-200 dark:bg-yellow-300 opacity-20 rounded-full top-10 -left-20 blur-3xl"
         animate={{ x: [0, 40, 0], y: [0, 20, 0] }}
         transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute w-80 h-80 bg-purple-400 opacity-10 rounded-full bottom-10 -right-20 blur-3xl"
+        className="absolute w-80 h-80 bg-purple-300 dark:bg-purple-400 opacity-10 rounded-full bottom-10 -right-20 blur-3xl"
         animate={{ x: [0, -30, 0], y: [0, -15, 0] }}
         transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
       />
 
-      {/* Section title */}
-      <motion.h1
-        className="text-center text-3xl sm:text-4xl font-extrabold text-yellow-500 dark:text-yellow-400 mb-10 sm:mb-14"
+      {/* Section heading */}
+      <motion.div
+        className="text-center mb-12"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
-        variants={headingVariants}
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUp}
       >
-        Our Services
-      </motion.h1>
+        <motion.h1
+          className="text-4xl font-extrabold mb-6 text-yellow-500 dark:text-yellow-400"
+          variants={fadeUp}
+        >
+          Our Services
+        </motion.h1>
+      </motion.div>
 
       {/* Services grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 max-w-6xl mx-auto">
@@ -104,21 +118,17 @@ const Services = () => {
           return (
             <Link key={index} to={service.pagePath}>
               <motion.div
-                className="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-2xl shadow-xl hover:shadow-yellow-400/40 transition-all duration-300 text-center cursor-pointer group relative overflow-hidden"
+                className="p-6 sm:p-8 rounded-2xl shadow-xl transition-all duration-300 text-center cursor-pointer group relative overflow-hidden dark:bg-gray-800 bg-white/30 backdrop-blur-lg border border-white/40 hover:shadow-yellow-300/30 dark:hover:shadow-yellow-500/40"
                 custom={index}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.2 }}
                 variants={cardVariants}
                 whileHover={{ scale: 1.05, rotateZ: 1 }}
               >
-                {/* Gradient Circular Icon with Animation */}
-                <motion.div
-                  className="mb-5 flex justify-center"
-                  whileHover={{ scale: 1.1 }}
-                >
+                <motion.div className="mb-5 flex justify-center" whileHover={{ scale: 1.1 }}>
                   <motion.div
-                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center shadow-lg ring-2 ring-yellow-100 dark:ring-yellow-900 transition-all duration-300"
+                    className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-yellow-300 to-orange-400 dark:from-yellow-400 dark:to-orange-500 flex items-center justify-center shadow-md ring-4 ring-yellow-100 dark:ring-yellow-900 transition-all duration-300"
                     whileHover={{ scale: 1.15, rotate: 2 }}
                   >
                     <motion.div
@@ -130,7 +140,7 @@ const Services = () => {
                   </motion.div>
                 </motion.div>
 
-                <h2 className="text-xl sm:text-2xl font-semibold text-yellow-600 dark:text-yellow-400 z-10 relative flex items-center justify-center gap-2">
+                <h2 className="text-xl sm:text-2xl font-semibold text-yellow-500 dark:text-yellow-400 z-10 relative flex items-center justify-center gap-2">
                   {service.title}
                   <ExternalLink className="w-5 h-5 sm:w-6 sm:h-6" />
                 </h2>
@@ -144,20 +154,21 @@ const Services = () => {
         })}
       </div>
 
-      {/* CTA button */}
+      {/* CTA Button */}
       <Link to="/services/contact">
         <motion.div
           className="mt-14 sm:mt-16 flex justify-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={fadeUp}
         >
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 sm:px-8 rounded-full shadow-lg transition-all duration-300 text-sm sm:text-base"
+            className="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-3 px-6 sm:px-8 rounded-full shadow-lg transition-all duration-300 text-sm sm:text-base"
           >
-            Contact Us Today 🚀
+            Contact Us Today 🎬
           </motion.button>
         </motion.div>
       </Link>
