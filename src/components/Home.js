@@ -11,6 +11,7 @@ import {
 import Slideshow from "./SlideShow";
 import bgvd from "../images/bgVideo.mp4";
 import ConnectSection from "./ConnectSection";
+import TextPathAnimation from "./TextPathAnimation";
 
 // Animation variants
 const fadeUp = {
@@ -85,7 +86,9 @@ const Home = () => {
       <div className="py-12 px-6 bg-gradient-to-b from-white via-gray-100 to-white dark:from-black dark:via-gray-900 dark:to-black">
         <Slideshow />
       </div>
-
+      <div>
+        <TextPathAnimation />
+      </div>
       {/* Why Simbha Section */}
       <section className="py-20 px-6 text-center bg-gradient-to-br from-[#fffbe6] via-[#fef9e7] to-[#fff1c1] dark:from-gray-900 dark:via-black dark:to-gray-900">
         <motion.h2
