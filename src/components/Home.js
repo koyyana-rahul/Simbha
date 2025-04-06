@@ -44,7 +44,7 @@ const stagger = {
 
 const Home = () => {
   return (
-    <div className="bg-white text-black dark:bg-black dark:text-white min-h-screen overflow-x-hidden font-sans transition-colors duration-300">
+    <div className="font-sans bg-white text-black dark:bg-black dark:text-white min-h-screen overflow-x-hidden transition-colors duration-300">
       {/* Hero Section */}
       <section className="relative h-screen w-full flex items-center justify-center text-center overflow-hidden">
         <div className="absolute w-full h-full z-0">
@@ -65,7 +65,7 @@ const Home = () => {
           variants={fadeUp}
         >
           <motion.h1
-            className="text-5xl md:text-6xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-black dark:to-white animate-gradient-x"
+            className="text-5xl md:text-6xl font-bold leading-tight tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-black dark:to-white animate-gradient-x"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
@@ -73,7 +73,7 @@ const Home = () => {
             Welcome to Simbha
           </motion.h1>
           <motion.p
-            className="mt-4 text-lg text-gray-800 dark:text-gray-300"
+            className="mt-4 text-lg md:text-xl leading-relaxed tracking-wide text-gray-800 dark:text-gray-300"
             variants={fadeUp}
             custom={2}
           >
@@ -82,17 +82,17 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* Slideshow Section */}
+      {/* Slideshow */}
       <div className="py-12 px-6 bg-gradient-to-b from-white via-gray-100 to-white dark:from-black dark:via-gray-900 dark:to-black">
         <Slideshow />
       </div>
-      <div>
-        <TextPathAnimation />
-      </div>
-      {/* Why Simbha Section */}
+
+      <TextPathAnimation />
+
+      {/* Why Simbha */}
       <section className="py-20 px-6 text-center bg-gradient-to-br from-[#fffbe6] via-[#fef9e7] to-[#fff1c1] dark:from-gray-900 dark:via-black dark:to-gray-900">
         <motion.h2
-          className="text-4xl font-bold mb-12"
+          className="text-4xl md:text-5xl font-bold mb-12 tracking-tight"
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -143,8 +143,10 @@ const Home = () => {
               >
                 {item.icon}
               </motion.div>
-              <h3 className="text-xl font-semibold">{item.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300 mt-2">
+              <h3 className="text-xl font-semibold tracking-wide">
+                {item.title}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 mt-2 text-base leading-relaxed">
                 {item.desc}
               </p>
             </motion.div>
@@ -152,10 +154,10 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* How It Works Section */}
+      {/* How It Works */}
       <section className="py-24 bg-gradient-to-br from-yellow-100 via-white to-yellow-50 dark:from-black dark:via-gray-900 dark:to-gray-800">
         <motion.h2
-          className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-yellow-200"
+          className="text-4xl font-bold text-center mb-12 tracking-tight text-gray-900 dark:text-yellow-200"
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -201,19 +203,21 @@ const Home = () => {
               >
                 {item.icon}
               </motion.div>
-              <h4 className="text-xl font-semibold text-gray-800 dark:text-white mb-1">
+              <h4 className="text-xl font-semibold mb-1 tracking-wide">
                 {item.title}
               </h4>
-              <p className="text-gray-700 dark:text-gray-300">{item.desc}</p>
+              <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed">
+                {item.desc}
+              </p>
             </motion.div>
           ))}
         </motion.div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Testimonials */}
       <section className="py-24 bg-gradient-to-r from-white to-gray-100 dark:from-[#0f172a] dark:to-[#020617]">
         <motion.h2
-          className="text-4xl font-bold text-center mb-14 text-gray-900 dark:text-yellow-300"
+          className="text-4xl font-bold text-center mb-14 tracking-tight text-gray-900 dark:text-yellow-300"
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -231,8 +235,7 @@ const Home = () => {
         >
           {[
             {
-              quote:
-                "Our reach skyrocketed in weeks! Simbha is a game-changer.",
+              quote: "Our reach skyrocketed in weeks! Simbha is a game-changer.",
               name: "Arjun Patel",
             },
             {
@@ -246,23 +249,24 @@ const Home = () => {
               variants={fadeUp}
               custom={index}
             >
-              <p className="text-gray-800 dark:text-gray-300 italic text-lg">
+              <p className="text-gray-800 dark:text-gray-300 italic text-lg leading-relaxed">
                 "{item.quote}"
               </p>
-              <p className="text-yellow-500 mt-4 font-bold">- {item.name}</p>
+              <p className="text-yellow-500 mt-4 font-bold tracking-wide">
+                - {item.name}
+              </p>
             </motion.div>
           ))}
         </motion.div>
       </section>
 
-      {/* Google Map Section */}
-      {/* Map Section */}
+      {/* Location Section */}
       <section className="py-20 bg-white dark:bg-black px-4 sm:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-gray-800 dark:text-yellow-300">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 tracking-tight text-gray-800 dark:text-yellow-300">
             Visit Us at Gajuwaka
           </h2>
-          <p className="mb-8 text-gray-600 dark:text-gray-300 text-base sm:text-lg">
+          <p className="mb-8 text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
             We’re located in Gajuwaka, Visakhapatnam — swing by or drop us a
             message!
           </p>
@@ -280,9 +284,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <div>
-        <ConnectSection />
-      </div>
+
+      <ConnectSection />
     </div>
   );
 };
