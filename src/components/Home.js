@@ -65,20 +65,29 @@ const Home = () => {
           variants={fadeUp}
         >
           <motion.h1
-            className="text-5xl md:text-6xl font-bold leading-tight tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-black dark:to-white animate-gradient-x"
+            className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-black dark:to-white animate-gradient-x"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
           >
-            Welcome to Simbha
+            WELCOME TO SIMBHA AD AGENCY
           </motion.h1>
           <motion.p
-            className="mt-4 text-lg md:text-xl leading-relaxed tracking-wide text-gray-800 dark:text-gray-300"
-            variants={fadeUp}
-            custom={2}
-          >
-            Next-gen advertising via high-visibility digital screens.
-          </motion.p>
+  className="mt-6 text-lg sm:text-xl md:text-2xl font-medium text-gray-800 dark:text-gray-200 leading-relaxed"
+  variants={fadeUp}
+  custom={2}
+>
+  <span className="block text-black dark:text-white font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight">
+    We Don’t Just Show Ads.
+  </span>
+  <span className="block text-yellow-600 dark:text-yellow-400 font-bold text-xl sm:text-2xl mt-2">
+    We Command Attention.
+  </span>
+  {/* <span className="block mt-4 italic text-base sm:text-lg text-orange-600 dark:text-orange-400 font-semibold">
+    Bold, assertive, and perfect for a standout agency.
+  </span> */}
+</motion.p>
+
         </motion.div>
       </section>
 
@@ -87,12 +96,13 @@ const Home = () => {
         <Slideshow />
       </div>
 
+      {/* Scrolling Animation Text */}
       <TextPathAnimation />
 
       {/* Why Simbha */}
       <section className="py-20 px-6 text-center bg-gradient-to-br from-[#fffbe6] via-[#fef9e7] to-[#fff1c1] dark:from-gray-900 dark:via-black dark:to-gray-900">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold mb-12 tracking-tight"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 tracking-tight"
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -102,7 +112,7 @@ const Home = () => {
         </motion.h2>
 
         <motion.div
-          className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto"
+          className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto"
           variants={stagger}
           initial="hidden"
           whileInView="visible"
@@ -112,17 +122,17 @@ const Home = () => {
             {
               icon: <FaEye />,
               title: "High Visibility",
-              desc: "Screens in key public locations.",
+              desc: "Our displays are strategically placed in high-traffic public areas.",
             },
             {
               icon: <FaRocket />,
               title: "Instant Impact",
-              desc: "Engage your audience in seconds.",
+              desc: "Deliver your message in seconds with powerful visuals.",
             },
             {
               icon: <FaCheck />,
               title: "Easy Updates",
-              desc: "Manage your campaigns anytime.",
+              desc: "Modify your ad content anytime through our seamless dashboard.",
             },
           ].map((item, index) => (
             <motion.div
@@ -143,7 +153,7 @@ const Home = () => {
               >
                 {item.icon}
               </motion.div>
-              <h3 className="text-xl font-semibold tracking-wide">
+              <h3 className="text-lg sm:text-xl font-semibold tracking-wide">
                 {item.title}
               </h3>
               <p className="text-gray-600 dark:text-gray-300 mt-2 text-base leading-relaxed">
@@ -157,7 +167,7 @@ const Home = () => {
       {/* How It Works */}
       <section className="py-24 bg-gradient-to-br from-yellow-100 via-white to-yellow-50 dark:from-black dark:via-gray-900 dark:to-gray-800">
         <motion.h2
-          className="text-4xl font-bold text-center mb-12 tracking-tight text-gray-900 dark:text-yellow-200"
+          className="text-3xl sm:text-4xl font-bold text-center mb-12 tracking-tight text-gray-900 dark:text-yellow-200"
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -167,7 +177,7 @@ const Home = () => {
         </motion.h2>
 
         <motion.div
-          className="grid md:grid-cols-3 gap-12 max-w-7xl mx-auto px-6"
+          className="grid sm:grid-cols-2 md:grid-cols-3 gap-12 max-w-7xl mx-auto px-6"
           variants={stagger}
           initial="hidden"
           whileInView="visible"
@@ -177,17 +187,17 @@ const Home = () => {
             {
               icon: <FaEnvelope />,
               title: "1. Connect with Admin",
-              desc: "Email or call us to begin.",
+              desc: "Start by contacting us via email or phone.",
             },
             {
               icon: <FaClipboardCheck />,
               title: "2. Share Your Content",
-              desc: "Send video or image ads.",
+              desc: "Provide your ad creatives in image or video format.",
             },
             {
               icon: <FaTv />,
               title: "3. Go Live on Screens",
-              desc: "Your ad is up and running!",
+              desc: "Your campaign goes live across our digital network.",
             },
           ].map((item, i) => (
             <motion.div
@@ -203,7 +213,7 @@ const Home = () => {
               >
                 {item.icon}
               </motion.div>
-              <h4 className="text-xl font-semibold mb-1 tracking-wide">
+              <h4 className="text-lg sm:text-xl font-semibold mb-1 tracking-wide">
                 {item.title}
               </h4>
               <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed">
@@ -217,7 +227,7 @@ const Home = () => {
       {/* Testimonials */}
       <section className="py-24 bg-gradient-to-r from-white to-gray-100 dark:from-[#0f172a] dark:to-[#020617]">
         <motion.h2
-          className="text-4xl font-bold text-center mb-14 tracking-tight text-gray-900 dark:text-yellow-300"
+          className="text-3xl sm:text-4xl font-bold text-center mb-14 tracking-tight text-gray-900 dark:text-yellow-300"
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -227,7 +237,7 @@ const Home = () => {
         </motion.h2>
 
         <motion.div
-          className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto px-6"
+          className="grid sm:grid-cols-2 gap-10 max-w-5xl mx-auto px-6"
           variants={stagger}
           initial="hidden"
           whileInView="visible"
@@ -270,21 +280,21 @@ const Home = () => {
             We’re located in Gajuwaka, Visakhapatnam — swing by or drop us a
             message!
           </p>
-          <div className="w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-lg border-2 border-yellow-300 dark:border-yellow-500">
-            <iframe
-              title="Simbha Location - Gajuwaka"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3827.305649346151!2d83.17925677513608!3d17.68267329589947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a395c289e4c6195%3A0x400d9977ddbe27bd!2sGajuwaka%2C%20Visakhapatnam%2C%20Andhra%20Pradesh%20530026!5e0!3m2!1sen!2sin!4v1712300000000!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
+          <iframe
+            title="Simbha Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.396038633682!2d83.18323381539377!3d17.722763398733194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39592f4eb36f5d%3A0x75e406d969166418!2sGajuwaka%2C%20Visakhapatnam%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1681066121444!5m2!1sen!2sin"
+            width="100%"
+            height="400"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            className="rounded-xl shadow-lg"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
       </section>
 
+      {/* Connect Section */}
       <ConnectSection />
     </div>
   );

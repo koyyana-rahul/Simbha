@@ -14,6 +14,7 @@ import AdOnWheels from "./components/AdOnWheels";
 import AdFilms from "./components/AdFilms";
 import ScrollToTop from "./components/ScrollToTop"; // Make sure this file exists
 import WhatsAppFloatingIcon from "./components/WhatsAppFloatingIcon";
+import Error from "./components/Error";
 
 const App = () => {
   return (
@@ -47,6 +48,7 @@ export const appRouter = createBrowserRouter([
       { path: "about", element: <About /> },
       { path: "contact", element: <Contact /> },
     ],
+    errorElement: <Error />,
   },
 ]);
 

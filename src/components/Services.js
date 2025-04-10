@@ -104,11 +104,14 @@ const Services = () => {
         variants={fadeUp}
       >
         <motion.h1
-          className="text-4xl font-extrabold mb-6 text-yellow-500 dark:text-yellow-400"
+          className="text-4xl sm:text-5xl font-bold leading-tight mb-4 text-yellow-500 dark:text-yellow-400 tracking-tight"
           variants={fadeUp}
         >
           Our Services
         </motion.h1>
+        <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          Explore the wide range of advertising services we provide to elevate your brand’s visibility.
+        </p>
       </motion.div>
 
       {/* Services grid */}
@@ -140,12 +143,12 @@ const Services = () => {
                   </motion.div>
                 </motion.div>
 
-                <h2 className="text-xl sm:text-2xl font-semibold text-yellow-500 dark:text-yellow-400 z-10 relative flex items-center justify-center gap-2">
+                <h2 className="text-lg sm:text-xl font-semibold text-yellow-600 dark:text-yellow-400 mb-2 flex items-center justify-center gap-2">
                   {service.title}
                   <ExternalLink className="w-5 h-5 sm:w-6 sm:h-6" />
                 </h2>
 
-                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mt-2 sm:mt-3 z-10 relative">
+                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
                   {service.description}
                 </p>
               </motion.div>
@@ -157,7 +160,7 @@ const Services = () => {
       {/* CTA Button */}
       <Link to="/services/contact">
         <motion.div
-          className="mt-14 sm:mt-16 flex justify-center"
+          className="mt-16 flex justify-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -166,7 +169,7 @@ const Services = () => {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-3 px-6 sm:px-8 rounded-full shadow-lg transition-all duration-300 text-sm sm:text-base"
+            className="bg-yellow-400 hover:bg-yellow-500 text-white font-semibold py-3 px-6 sm:px-8 rounded-full shadow-lg transition-all duration-300 text-sm sm:text-base"
           >
             Contact Us Today 🎬
           </motion.button>

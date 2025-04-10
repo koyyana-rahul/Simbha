@@ -1,66 +1,64 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
+import led from "../images/SlideShow/led.png";
+import tea from "../images/SlideShow/tea.png";
+import digital from "../images/SlideShow/digital.png";
+import web from "../images/SlideShow/web.png";
+import ad from "../images/SlideShow/AdFilm.jpg";
+import wheels from "../images/SlideShow/wheels.jpg";
+
 const images = [
-  {
-    url: "https://eu.site.pro/v4.2/data/s/i/simbhaadagency.com/gallery/Website.jpg",
-    caption: "Website Design",
-  },
-  {
-    url: "https://eu.site.pro/v4.2/data/s/i/simbhaadagency.com/gallery/Free%20AD%20Mockup%20PSD%20Template%20-%20Mockup%20Den.jpg",
-    caption: "Ad Mockup",
-  },
-  {
-    url: "https://eu.site.pro/v4.2/data/s/i/simbhaadagency.com/gallery/Food%20Menu.jpg",
-    caption: "Digital Food Menu",
-  },
-  {
-    url: "https://eu.site.pro/v4.2/data/s/i/simbhaadagency.com/gallery/sdawd.jpg",
-    caption: "Interactive Display",
-  },
-  {
-    url: "https://eu.site.pro/v4.2/data/s/i/simbhaadagency.com/gallery/digital%20m.jpg",
-    caption: "Digital Marketing",
-  },
+  { url: led, caption: "Led Display Ads" },
+  { url: tea, caption: "Tea Cup Printing Ads" },
+  { url: digital, caption: "Digital Marketing" },
+  { url: web, caption: "Website Building" },
+  { url: wheels, caption: "Ads On Wheels" },
+  { url: ad, caption: "Making Ad Films" },
 ];
+
+const slideVariants = {
+  enter: (direction) => ({
+    x: direction > 0 ? 100 : -100,
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+  },
+  exit: (direction) => ({
+    x: direction > 0 ? -100 : 100,
+    opacity: 0,
+  }),
+};
 
 const Slideshow = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(2);
-  const [direction, setDirection] = useState(1); // 1 for next, -1 for prev
+  const [direction, setDirection] = useState(1);
 
-  // Handle responsiveness
+  // Adjust number of slides based on screen size
   useEffect(() => {
     const updateSlidesToShow = () => {
-      if (window.innerWidth < 640) {
-        setSlidesToShow(1);
-      } else {
-        setSlidesToShow(2);
-      }
+      setSlidesToShow(window.innerWidth < 640 ? 1 : 2);
     };
+
     updateSlidesToShow();
     window.addEventListener("resize", updateSlidesToShow);
     return () => window.removeEventListener("resize", updateSlidesToShow);
   }, []);
 
-  // Auto slide
-  useEffect(() => {
-    const interval = setInterval(() => {
-      goToNextSlide();
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [currentIndex, slidesToShow]);
-
-  const goToNextSlide = () => {
+  // goToNextSlide wrapped with useCallback
+  const goToNextSlide = useCallback(() => {
     setDirection(1);
     setCurrentIndex((prev) => (prev + slidesToShow) % images.length);
-  };
+  }, [slidesToShow]);
 
   const goToPrevSlide = () => {
     setDirection(-1);
-    setCurrentIndex((prev) =>
-      (prev - slidesToShow + images.length) % images.length
+    setCurrentIndex(
+      (prev) => (prev - slidesToShow + images.length) % images.length
     );
   };
 
@@ -70,23 +68,14 @@ const Slideshow = () => {
     });
   };
 
-  const slideVariants = {
-    initial: (dir) => ({
-      opacity: 0,
-      x: dir > 0 ? 100 : -100,
-    }),
-    animate: {
-      opacity: 1,
-      x: 0,
-    },
-    exit: (dir) => ({
-      opacity: 0,
-      x: dir > 0 ? -100 : 100,
-    }),
-  };
+  // Auto slide every 4s
+  useEffect(() => {
+    const interval = setInterval(goToNextSlide, 4000);
+    return () => clearInterval(interval);
+  }, [goToNextSlide]);
 
   return (
-    <div className="relative w-full max-w-6xl mx-auto h-[260px] sm:h-[300px] md:h-[350px] bg-gray-100 dark:bg-gray-800 rounded-xl shadow-lg p-4">
+    <div className="relative w-full max-w-6xl mx-auto h-auto bg-gray-100 dark:bg-gray-800 rounded-xl shadow-lg p-4 overflow-hidden">
       {/* Arrows */}
       <button
         onClick={goToPrevSlide}
@@ -94,7 +83,6 @@ const Slideshow = () => {
       >
         <FaChevronLeft />
       </button>
-
       <button
         onClick={goToNextSlide}
         className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-600 z-10"
@@ -102,29 +90,29 @@ const Slideshow = () => {
         <FaChevronRight />
       </button>
 
-      {/* Images */}
+      {/* Slides */}
       <AnimatePresence custom={direction} mode="wait">
         <motion.div
           key={currentIndex}
           custom={direction}
           variants={slideVariants}
-          initial="initial"
-          animate="animate"
+          initial="enter"
+          animate="center"
           exit="exit"
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="flex gap-4 justify-center items-center"
         >
           {getVisibleImages().map((img, i) => (
             <div
               key={i}
-              className="w-full sm:w-1/2 h-[200px] sm:h-[240px] md:h-[280px] overflow-hidden rounded-lg shadow-md relative"
+              className="w-full sm:w-1/2 aspect-video bg-white dark:bg-gray-900 overflow-hidden rounded-lg shadow-md relative"
             >
               <img
                 src={img.url}
                 alt={img.caption}
-                className="object-cover w-full h-full"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 text-white text-sm p-2 text-center">
+              <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-60 text-white text-sm p-2 text-center">
                 {img.caption}
               </div>
             </div>

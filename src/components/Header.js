@@ -9,7 +9,6 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const mobileMenuRef = useRef();
 
-  // Close menu on window resize (desktop)
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) setIsOpen(false);
@@ -18,7 +17,6 @@ const Header = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Detect click outside to close mobile menu
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -44,7 +42,6 @@ const Header = () => {
         }`}
       >
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          {/* Logo & Brand */}
           <Link to="/" className="flex items-center space-x-3">
             <div className="logo-container">
               <img className="logo-img" alt="logo" src={simbhaImage} />
@@ -52,7 +49,6 @@ const Header = () => {
             <span className="animated-brand">Simbha Ads</span>
           </Link>
 
-          {/* Desktop Nav */}
           <div className="hidden md:flex space-x-6">
             <NavLink to="/" label="Home" />
             <NavLink to="/services" label="Services" />
@@ -60,14 +56,14 @@ const Header = () => {
             <NavLink to="/contact" label="Contact Us" />
           </div>
 
-          {/* Theme Toggle & Hamburger */}
           <div className="flex items-center space-x-3">
-            <button
+            {/* Uncomment if you want to show the theme toggle */}
+            {/* <button
               onClick={toggleTheme}
               className="p-2 rounded-lg bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-white hover:scale-105 transition"
             >
               {theme === "light" ? <Moon size={22} /> : <Sun size={22} />}
-            </button>
+            </button> */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden text-gray-900 dark:text-white"
@@ -77,7 +73,6 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Nav */}
         <div
           ref={mobileMenuRef}
           className={`mobile-menu ${isOpen ? "open" : "closed"}`}
@@ -107,7 +102,11 @@ const Header = () => {
 };
 
 const NavLink = ({ to, label, onClick }) => (
-  <Link to={to} onClick={onClick} className="nav-link">
+  <Link
+    to={to}
+    onClick={onClick}
+    className="nav-link text-sm sm:text-base md:text-lg font-medium"
+  >
     {label}
   </Link>
 );
@@ -117,7 +116,7 @@ const animations = (theme) => `
     width: 50px;
     height: 50px;
     border-radius: 12px;
-    border: 3px solid ${theme === "light" ? "#f59e0b" : "#facc15"};
+    border: 2px solid ${theme === "light" ? "#f59e0b" : "#facc15"};
     background: ${theme === "light" ? "#ffffff" : "#1f2937"};
     display: flex;
     align-items: center;
@@ -132,7 +131,7 @@ const animations = (theme) => `
   }
 
   .animated-brand {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: bold;
     background: linear-gradient(90deg, #f59e0b, #fbbf24, #facc15);
     background-size: 300% 300%;
@@ -179,12 +178,11 @@ const animations = (theme) => `
   }
 
   .nav-link {
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 12px 18px;
+    padding: 10px 20px;
     border-radius: 10px;
-    color: ${theme === "light" ? "#111827" : "#E5E7EB"};
     transition: all 0.3s ease-in-out;
+    color: ${theme === "light" ? "#1f2937" : "#e5e7eb"};
+    text-decoration: none;
   }
 
   .nav-link:hover {
@@ -193,10 +191,9 @@ const animations = (theme) => `
   }
 
   @media (max-width: 360px) {
-    .menu-list li,
     .nav-link {
-      font-size: 0.95rem;
-      padding: 10px;
+      font-size: 0.75rem;
+      padding: 10px 12px;
     }
   }
 `;

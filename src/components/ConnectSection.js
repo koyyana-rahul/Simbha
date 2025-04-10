@@ -95,18 +95,7 @@ const ConnectSection = () => {
           </ul>
         </div>
 
-        {/* Creative Production */}
-        <div>
-          <h3 className="text-lg font-semibold mb-3">Creative Production</h3>
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-400">
-            <li>3D Animation</li>
-            <li>Visual effects</li>
-            <li>Film Editing</li>
-            <li>TVC</li>
-            <li>UGC Video</li>
-            <li>Digital ad films</li>
-          </ul>
-        </div>
+        
 
         {/* Digital Marketing */}
         <div>
@@ -130,8 +119,7 @@ const ConnectSection = () => {
             Connect
           </h4>
           <ul className="space-y-1">
-            <li>General Enquiry: AE (+971 4 2730100) | IN (+91 97784 01018)</li>
-            <li>Sales Enquiry: AE (+971 54582 1134) | IN (+91 97784 01018)</li>
+            
             <li>Email: simbhaadagency.info@gmail.com</li>
             <li>WhatsApp: +91 87903 59681</li>
           </ul>
