@@ -1,1 +1,1 @@
-[https://incandescent-dusk-28b392.netlify.app/]
+https://simbha.vercel.app/
