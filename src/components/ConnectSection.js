@@ -20,19 +20,44 @@ const ConnectSection = () => {
       <div className="flex flex-col sm:flex-row items-center justify-between border-b border-gray-300 dark:border-gray-700 pb-6 mb-12 gap-6 sm:gap-0">
         <h1 className="text-3xl font-bold">Simbha.</h1>
         <div className="flex gap-3 text-lg">
-          <a href="#" className="hover:text-blue-600 transition">
+          <a
+            href="https://www.facebook.com/Simbhaadagency"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-blue-600 transition"
+          >
             <FaFacebookF />
           </a>
-          <a href="#" className="hover:text-pink-500 transition">
+          <a
+            href="https://www.instagram.com/simbhaadagency"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-pink-500 transition"
+          >
             <FaInstagram />
           </a>
-          <a href="#" className="hover:text-blue-800 transition">
+          <a
+            href="https://www.linkedin.com/company/simbha-ad-agency"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-blue-800 transition"
+          >
             <FaLinkedinIn />
           </a>
-          <a href="#" className="hover:text-red-600 transition">
+          <a
+            href="https://www.youtube.com/@Simbha-ads"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-red-600 transition"
+          >
             <FaYoutube />
           </a>
-          <a href="#" className="hover:text-sky-500 transition">
+          <a
+            href="https://twitter.com/simbhaadagency"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-sky-500 transition"
+          >
             <FaTwitter />
           </a>
         </div>
