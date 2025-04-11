@@ -6,6 +6,7 @@ import {
   FaLinkedinIn,
   FaYoutube,
   FaEnvelope,
+  FaTwitter,
   FaPhoneAlt,
   FaLightbulb,
   FaBullhorn,
@@ -19,10 +20,21 @@ const ConnectSection = () => {
       <div className="flex flex-col sm:flex-row items-center justify-between border-b border-gray-300 dark:border-gray-700 pb-6 mb-12 gap-6 sm:gap-0">
         <h1 className="text-3xl font-bold">Simbha.</h1>
         <div className="flex gap-3 text-lg">
-          <a href="#" className="hover:text-blue-600 transition"><FaFacebookF /></a>
-          <a href="#" className="hover:text-pink-500 transition"><FaInstagram /></a>
-          <a href="#" className="hover:text-blue-800 transition"><FaLinkedinIn /></a>
-          <a href="#" className="hover:text-red-600 transition"><FaYoutube /></a>
+          <a href="#" className="hover:text-blue-600 transition">
+            <FaFacebookF />
+          </a>
+          <a href="#" className="hover:text-pink-500 transition">
+            <FaInstagram />
+          </a>
+          <a href="#" className="hover:text-blue-800 transition">
+            <FaLinkedinIn />
+          </a>
+          <a href="#" className="hover:text-red-600 transition">
+            <FaYoutube />
+          </a>
+          <a href="#" className="hover:text-sky-500 transition">
+            <FaTwitter />
+          </a>
         </div>
       </div>
 
@@ -34,7 +46,9 @@ const ConnectSection = () => {
             <FaProjectDiagram className="text-indigo-500 text-xl" />
             <h2 className="text-xl font-semibold">Have a project in mind?</h2>
           </div>
-          <p className="text-gray-600 dark:text-gray-400 italic mb-4">Let’s Connect!</p>
+          <p className="text-gray-600 dark:text-gray-400 italic mb-4">
+            Let’s Connect!
+          </p>
           <div className="flex flex-col gap-3">
             <a
               href="mailto:simbhaadagency.info@gmail.com"
@@ -91,7 +105,9 @@ const ConnectSection = () => {
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 text-sm text-gray-700 dark:text-gray-400 border-t border-gray-300 dark:border-gray-700 pt-10">
         {/* Contact Info */}
         <div>
-          <h4 className="text-lg font-semibold text-black dark:text-white mb-2">Connect</h4>
+          <h4 className="text-lg font-semibold text-black dark:text-white mb-2">
+            Connect
+          </h4>
           <ul className="space-y-1">
             <li>Email: simbhaadagency.info@gmail.com</li>
             <li>WhatsApp: +91 87903 59681</li>
@@ -100,11 +116,19 @@ const ConnectSection = () => {
 
         {/* Company Links */}
         <div>
-          <h4 className="text-lg font-semibold text-black dark:text-white mb-2">Company</h4>
+          <h4 className="text-lg font-semibold text-black dark:text-white mb-2">
+            Company
+          </h4>
           <ul className="space-y-1">
-            <Link to="/about"><li>About</li></Link>
-            <Link to="/services"><li>Services</li></Link>
-            <Link to="/contact"><li>Contact Us</li></Link>
+            <Link to="/about">
+              <li>About</li>
+            </Link>
+            <Link to="/services">
+              <li>Services</li>
+            </Link>
+            <Link to="/contact">
+              <li>Contact Us</li>
+            </Link>
           </ul>
         </div>
       </div>
