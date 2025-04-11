@@ -11,7 +11,6 @@ import {
   ExternalLink,
 } from "lucide-react";
 
-// Animation variants
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: {
@@ -82,8 +81,9 @@ const services = [
 
 const Services = () => {
   return (
-    <div className="relative mt-16 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen px-4 sm:px-6 lg:px-10 py-10 overflow-hidden">
-      {/* Background animation blobs */}
+    <div className="relative mt-16 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen px-4 sm:px-6 lg:px-10 py-10 overflow-hidden font-[Inter]">
+
+      {/* Background blobs */}
       <motion.div
         className="absolute w-64 h-64 bg-yellow-200 dark:bg-yellow-300 opacity-20 rounded-full top-10 -left-20 blur-3xl"
         animate={{ x: [0, 40, 0], y: [0, 20, 0] }}
@@ -109,7 +109,7 @@ const Services = () => {
         >
           Our Services
         </motion.h1>
-        <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-light">
           Explore the wide range of advertising services we provide to elevate your brand’s visibility.
         </p>
       </motion.div>
@@ -148,7 +148,7 @@ const Services = () => {
                   <ExternalLink className="w-5 h-5 sm:w-6 sm:h-6" />
                 </h2>
 
-                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed font-normal">
                   {service.description}
                 </p>
               </motion.div>

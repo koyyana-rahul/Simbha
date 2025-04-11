@@ -35,16 +35,8 @@ const CategoriesContainer = ({ data }) => {
   const openModal = (img) => setModalImg(img);
   const closeModal = () => setModalImg(null);
 
-  if (!data) {
-    return (
-      <div className="text-center py-10 text-red-500 font-medium font-sans">
-        No data provided.
-      </div>
-    );
-  }
-
   return (
-    <div className="relative z-0 bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen pt-4 overflow-x-hidden font-sans">
+    <div className="relative z-0 bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen pt-4 overflow-x-hidden font-inter">
       {/* Background Blobs */}
       <motion.div
         className="absolute w-72 h-72 bg-yellow-300 opacity-20 rounded-full top-0 -left-28 blur-3xl z-0"
@@ -58,7 +50,7 @@ const CategoriesContainer = ({ data }) => {
       />
 
       {/* Main Content */}
-      <div className="relative z-10 pt-24 pb-10 px-4 sm:px-6 flex flex-col items-center">
+      <div className="relative z-10 pt-24 pb-10 px-4 sm:px-6 flex flex-col items-center font-inter">
         {/* Heading */}
         <motion.div
           className="max-w-4xl text-center w-full"
@@ -67,7 +59,7 @@ const CategoriesContainer = ({ data }) => {
           viewport={{ once: true, amount: 0.2 }}
           variants={fadeUp}
         >
-          <motion.h1 className="text-3xl sm:text-5xl font-bold mb-6 text-yellow-500 dark:text-yellow-400 tracking-tight leading-tight font-sans">
+          <motion.h1 className="text-3xl sm:text-5xl font-bold mb-6 text-yellow-500 dark:text-yellow-400 tracking-tight leading-tight">
             {data.heading}
           </motion.h1>
 
@@ -77,7 +69,7 @@ const CategoriesContainer = ({ data }) => {
         </motion.div>
 
         {/* Benefits */}
-        {data.benefits && data.benefits.length > 0 && (
+        {data.benefits?.length > 0 && (
           <motion.div
             className="mt-6 w-full max-w-6xl px-2 sm:px-4"
             initial="hidden"
@@ -85,7 +77,7 @@ const CategoriesContainer = ({ data }) => {
             viewport={{ once: true, amount: 0.2 }}
             variants={fadeUp}
           >
-            <h2 className="text-2xl sm:text-3xl font-semibold text-yellow-500 dark:text-yellow-400 mb-6 text-center font-medium">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-yellow-500 dark:text-yellow-400 mb-6 text-center">
               Key Benefits
             </h2>
 
@@ -137,37 +129,41 @@ const CategoriesContainer = ({ data }) => {
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               {service.title && (
-                <div className="absolute bottom-2 left-2 text-white text-sm font-medium z-10">
+                <div className="absolute bottom-2 left-2 text-white text-sm font-extralight z-10">
                   {service.title}
                 </div>
               )}
             </motion.div>
           ))}
         </motion.div>
+      </div>
 
-        {/* Image Modal */}
-        <AnimatePresence>
-          {modalImg && (
+      {/* Modal */}
+      <AnimatePresence>
+        {modalImg && (
+          <motion.div
+            className="fixed inset-0 bg-black/60 z-50 flex justify-center items-center sm:items-start sm:pt-[90px] px-4 sm:px-6 overflow-auto"
+            onClick={closeModal}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
             <motion.div
-              className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={closeModal}
+              className="relative"
+              onClick={(e) => e.stopPropagation()}
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.95 }}
             >
-              <motion.img
+              <img
                 src={modalImg}
                 alt="Preview"
-                className="max-w-full max-h-full rounded-lg shadow-2xl border-4 border-white dark:border-yellow-300"
-                initial={{ scale: 0.9 }}
-                animate={{ scale: 1 }}
-                exit={{ scale: 0.9 }}
-                onClick={(e) => e.stopPropagation()}
+                className="max-w-full max-h-[80vh] rounded-xl shadow-2xl border-4 border-white dark:border-yellow-400"
               />
             </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
@@ -176,7 +172,7 @@ CategoriesContainer.defaultProps = {
   data: {
     heading: "Our Gallery",
     description: "Discover our finest work and the services we proudly offer.",
-    categories: [], // example: [{ img: "/images/web.jpg", title: "Web Design" }]
+    categories: [],
     benefits: [],
   },
 };

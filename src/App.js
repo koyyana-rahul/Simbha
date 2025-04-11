@@ -19,7 +19,7 @@ import Error from "./components/Error";
 const App = () => {
   return (
     <ThemeProvider>
-      <div>
+      <div className="font-inter">
         <ScrollToTop />
         <Header />
         <Outlet />

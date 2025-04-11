@@ -35,7 +35,7 @@ const Header = () => {
     <>
       <style>{animations(theme)}</style>
       <nav
-        className={`fixed w-full top-0 z-50 backdrop-blur-md border-b shadow-lg ${
+        className={`font-inter fixed w-full top-0 z-50 backdrop-blur-md border-b shadow-lg ${
           theme === "light"
             ? "bg-white/70 border-gray-200"
             : "bg-gray-900/80 border-gray-800"
@@ -49,7 +49,7 @@ const Header = () => {
             <span className="animated-brand">Simbha Ads</span>
           </Link>
 
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden md:flex space-x-6 font-medium text-base">
             <NavLink to="/" label="Home" />
             <NavLink to="/services" label="Services" />
             <NavLink to="/about" label="About Us" />
@@ -57,7 +57,7 @@ const Header = () => {
           </div>
 
           <div className="flex items-center space-x-3">
-            {/* Uncomment if you want to show the theme toggle */}
+            {/* Optional Theme Toggle */}
             {/* <button
               onClick={toggleTheme}
               className="p-2 rounded-lg bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-white hover:scale-105 transition"
@@ -77,7 +77,7 @@ const Header = () => {
           ref={mobileMenuRef}
           className={`mobile-menu ${isOpen ? "open" : "closed"}`}
         >
-          <ul className="menu-list">
+          <ul className="menu-list font-medium text-base">
             <NavLink to="/" label="Home" onClick={() => setIsOpen(false)} />
             <NavLink
               to="/services"
@@ -105,7 +105,7 @@ const NavLink = ({ to, label, onClick }) => (
   <Link
     to={to}
     onClick={onClick}
-    className="nav-link text-sm sm:text-base md:text-lg font-medium"
+    className="nav-link text-sm sm:text-base md:text-lg font-medium font-inter"
   >
     {label}
   </Link>
@@ -132,7 +132,8 @@ const animations = (theme) => `
 
   .animated-brand {
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
     background: linear-gradient(90deg, #f59e0b, #fbbf24, #facc15);
     background-size: 300% 300%;
     -webkit-background-clip: text;
@@ -183,6 +184,7 @@ const animations = (theme) => `
     transition: all 0.3s ease-in-out;
     color: ${theme === "light" ? "#1f2937" : "#e5e7eb"};
     text-decoration: none;
+    font-family: 'Inter', sans-serif;
   }
 
   .nav-link:hover {

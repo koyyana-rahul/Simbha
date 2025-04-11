@@ -2,6 +2,7 @@ import React from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 
+// Animation variants
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i = 1) => ({
@@ -21,7 +22,7 @@ const Contact = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      className="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen pt-20 pb-10 px-4 sm:px-6 flex flex-col items-center overflow-hidden"
+      className="font-sans relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen pt-20 pb-10 px-4 sm:px-6 flex flex-col items-center overflow-hidden"
     >
       {/* Background Blobs */}
       <motion.div
@@ -38,7 +39,7 @@ const Contact = () => {
       {/* Heading */}
       <motion.div className="max-w-4xl text-center" variants={fadeUp} custom={0}>
         <motion.h1
-          className="text-3xl sm:text-4xl font-extrabold mb-6 text-yellow-500 dark:text-yellow-400"
+          className="text-3xl sm:text-4xl font-bold mb-6 text-yellow-500 dark:text-yellow-400"
           variants={fadeUp}
           custom={0}
         >
@@ -46,7 +47,7 @@ const Contact = () => {
         </motion.h1>
 
         <motion.p
-          className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto"
+          className="text-base sm:text-lg font-light text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto"
           variants={fadeUp}
           custom={1}
         >
@@ -99,7 +100,7 @@ const Contact = () => {
             <h3 className="text-xl sm:text-2xl font-semibold text-yellow-600 dark:text-yellow-400">
               {label}
             </h3>
-            <p className="text-sm sm:text-base md:text-lg text-gray-700 dark:text-gray-300 mt-2 break-words">
+            <p className="text-sm sm:text-base md:text-lg font-light text-gray-700 dark:text-gray-300 mt-2 break-words">
               {value}
             </p>
           </motion.a>

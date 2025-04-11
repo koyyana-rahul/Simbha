@@ -44,7 +44,7 @@ const stagger = {
 
 const Home = () => {
   return (
-    <div className="font-sans bg-white text-black dark:bg-black dark:text-white min-h-screen overflow-x-hidden transition-colors duration-300">
+    <div className="font-inter bg-white text-black dark:bg-black dark:text-white min-h-screen overflow-x-hidden transition-colors duration-300">
       {/* Hero Section */}
       <section className="relative h-screen w-full flex items-center justify-center text-center overflow-hidden">
         <div className="absolute w-full h-full z-0">
@@ -73,21 +73,17 @@ const Home = () => {
             WELCOME TO SIMBHA AD AGENCY
           </motion.h1>
           <motion.p
-  className="mt-6 text-lg sm:text-xl md:text-2xl font-medium text-gray-800 dark:text-gray-200 leading-relaxed"
-  variants={fadeUp}
-  custom={2}
->
-  <span className="block text-black dark:text-white font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight">
-    We Don’t Just Show Ads.
-  </span>
-  <span className="block text-yellow-600 dark:text-yellow-400 font-bold text-xl sm:text-2xl mt-2">
-    We Command Attention.
-  </span>
-  {/* <span className="block mt-4 italic text-base sm:text-lg text-orange-600 dark:text-orange-400 font-semibold">
-    Bold, assertive, and perfect for a standout agency.
-  </span> */}
-</motion.p>
-
+            className="mt-6 text-lg sm:text-xl md:text-2xl font-medium text-gray-800 dark:text-gray-200 leading-relaxed"
+            variants={fadeUp}
+            custom={2}
+          >
+            <span className="block text-black dark:text-white font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight">
+              We Don’t Just Show Ads.
+            </span>
+            <span className="block text-yellow-600 dark:text-yellow-400 font-bold text-xl sm:text-2xl mt-2">
+              We Command Attention.
+            </span>
+          </motion.p>
         </motion.div>
       </section>
 
@@ -96,10 +92,10 @@ const Home = () => {
         <Slideshow />
       </div>
 
-      {/* Scrolling Animation Text */}
+      {/* Scrolling Text Animation */}
       <TextPathAnimation />
 
-      {/* Why Simbha */}
+      {/* Why Simbha Section */}
       <section className="py-20 px-6 text-center bg-gradient-to-br from-[#fffbe6] via-[#fef9e7] to-[#fff1c1] dark:from-gray-900 dark:via-black dark:to-gray-900">
         <motion.h2
           className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 tracking-tight"
@@ -164,7 +160,7 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* How It Works */}
+      {/* How It Works Section */}
       <section className="py-24 bg-gradient-to-br from-yellow-100 via-white to-yellow-50 dark:from-black dark:via-gray-900 dark:to-gray-800">
         <motion.h2
           className="text-3xl sm:text-4xl font-bold text-center mb-12 tracking-tight text-gray-900 dark:text-yellow-200"
@@ -270,31 +266,7 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* Location Section */}
-      <section className="py-20 bg-white dark:bg-black px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 tracking-tight text-gray-800 dark:text-yellow-300">
-            Visit Us at Gajuwaka
-          </h2>
-          <p className="mb-8 text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
-            We’re located in Gajuwaka, Visakhapatnam — swing by or drop us a
-            message!
-          </p>
-          <iframe
-            title="Simbha Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.396038633682!2d83.18323381539377!3d17.722763398733194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39592f4eb36f5d%3A0x75e406d969166418!2sGajuwaka%2C%20Visakhapatnam%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1681066121444!5m2!1sen!2sin"
-            width="100%"
-            height="400"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            className="rounded-xl shadow-lg"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-      </section>
-
-      {/* Connect Section */}
+      {/* Contact/Connect Section */}
       <ConnectSection />
     </div>
   );
