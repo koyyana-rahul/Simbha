@@ -20,7 +20,7 @@ const Footer = () => {
         >
           {/* WhatsApp Link */}
           <motion.a
-            href="https://wa.me/918790359681"
+            href="https://wa.me/918790359681?text=Hi%20Simbha%20Team%2C%20I'm%20interested%20in%20your%20advertising%20services!"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.1 }}
