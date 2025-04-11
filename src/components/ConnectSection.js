@@ -5,141 +5,106 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaYoutube,
+  FaEnvelope,
+  FaPhoneAlt,
+  FaLightbulb,
+  FaBullhorn,
+  FaProjectDiagram,
 } from "react-icons/fa";
 
 const ConnectSection = () => {
   return (
-    <section className="border border-gray-300 dark:border-gray-700 bg-[#F9FAFB] dark:bg-[#0F0F0F] text-black dark:text-white px-4 sm:px-8 md:px-16 lg:px-20 py-10 transition-colors duration-500">
+    <section className="border border-gray-200 dark:border-gray-800 bg-[#F9FAFB] dark:bg-[#0F0F0F] text-black dark:text-white px-6 sm:px-12 lg:px-20 py-14 transition-colors duration-500 font-inter">
       {/* Top Bar */}
-      <div className="flex flex-col sm:flex-row items-center justify-between border-b border-gray-300 dark:border-gray-700 pb-6 mb-10 gap-6 sm:gap-0">
-        <h1 className="text-2xl font-bold text-black dark:text-white">
-          Simbha.
-        </h1>
-        <div className="flex flex-wrap gap-3 text-lg">
-          {/* Facebook */}
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group p-2 rounded-full text-black dark:text-white hover:bg-[#1877F2] hover:text-white transition duration-300"
-          >
-            <FaFacebookF />
-          </a>
-
-          {/* Instagram */}
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group rounded-full transition duration-300"
-          >
-            <div className="p-2 rounded-full text-black dark:text-white group-hover:bg-gradient-to-tr group-hover:from-pink-500 group-hover:to-yellow-500 group-hover:text-white transition duration-300">
-              <FaInstagram />
-            </div>
-          </a>
-
-          {/* LinkedIn */}
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group p-2 rounded-full text-black dark:text-white hover:bg-[#0077B5] hover:text-white transition duration-300"
-          >
-            <FaLinkedinIn />
-          </a>
-
-          {/* YouTube */}
-          <a
-            href="https://youtube.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group p-2 rounded-full text-black dark:text-white hover:bg-[#FF0000] hover:text-white transition duration-300"
-          >
-            <FaYoutube />
-          </a>
+      <div className="flex flex-col sm:flex-row items-center justify-between border-b border-gray-300 dark:border-gray-700 pb-6 mb-12 gap-6 sm:gap-0">
+        <h1 className="text-3xl font-bold">Simbha.</h1>
+        <div className="flex gap-3 text-lg">
+          <a href="#" className="hover:text-blue-600 transition"><FaFacebookF /></a>
+          <a href="#" className="hover:text-pink-500 transition"><FaInstagram /></a>
+          <a href="#" className="hover:text-blue-800 transition"><FaLinkedinIn /></a>
+          <a href="#" className="hover:text-red-600 transition"><FaYoutube /></a>
         </div>
       </div>
 
-      {/* Main Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 border-b border-gray-300 dark:border-gray-700 pb-10">
+      {/* Main Cards Section */}
+      <div className="flex flex-col lg:flex-row justify-between gap-10 mb-16">
+        {/* Card 1: Have a project in mind? */}
+        <div className="p-2 lg:max-w-sm w-full transition">
+          <div className="flex items-center gap-3 mb-4">
+            <FaProjectDiagram className="text-indigo-500 text-xl" />
+            <h2 className="text-xl font-semibold">Have a project in mind?</h2>
+          </div>
+          <p className="text-gray-600 dark:text-gray-400 italic mb-4">Let’s Connect!</p>
+          <div className="flex flex-col gap-3">
+            <a
+              href="mailto:simbhaadagency.info@gmail.com"
+              title="simbhaadagency.info@gmail.com"
+              className="flex items-center gap-2 bg-gray-100 dark:bg-white text-black px-4 py-2 rounded-full font-medium shadow-sm hover:opacity-80 truncate"
+            >
+              <FaEnvelope className="text-sm" />
+              simbhaadagency.info@gmail.com
+            </a>
+            <a
+              href="tel:+918790359681"
+              className="flex items-center gap-2 bg-gray-100 dark:bg-white text-black px-4 py-2 rounded-full font-medium shadow-sm hover:opacity-80"
+            >
+              <FaPhoneAlt className="text-sm" />
+              +91 8790359681
+            </a>
+          </div>
+        </div>
+
+        {/* Card 2: Brand Management */}
+        <div className="p-2 lg:max-w-sm w-full transition">
+          <div className="flex items-center gap-3 mb-4">
+            <FaLightbulb className="text-yellow-500 text-xl" />
+            <h2 className="text-xl font-semibold">Brand Management</h2>
+          </div>
+          <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
+            <li>• Brand identity</li>
+            <li>• Brand strategy</li>
+            <li>• Rebranding</li>
+            <li>• Packaging design</li>
+            <li>• Creative design</li>
+            <li>• Marketing collaterals</li>
+          </ul>
+        </div>
+
+        {/* Card 3: Digital Marketing */}
+        <div className="p-2 lg:max-w-sm w-full transition">
+          <div className="flex items-center gap-3 mb-4">
+            <FaBullhorn className="text-red-500 text-xl" />
+            <h2 className="text-xl font-semibold">Digital Marketing</h2>
+          </div>
+          <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
+            <li>• Social media management</li>
+            <li>• Search engine optimization</li>
+            <li>• Email marketing</li>
+            <li>• Influencer marketing</li>
+            <li>• Performance marketing</li>
+            <li>• Press release</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Footer Grid */}
+      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 text-sm text-gray-700 dark:text-gray-400 border-t border-gray-300 dark:border-gray-700 pt-10">
         {/* Contact Info */}
-        <div className="space-y-4">
-          <h2 className="text-2xl font-bold">Have a project in mind?</h2>
-          <p className="italic text-gray-600 dark:text-gray-400">
-            Let’s Connect!
-          </p>
-          <a
-            href="mailto:simbhaadagency.info@gmail.com"
-            className="block bg-black dark:bg-white text-white dark:text-black px-5 py-3 rounded-full font-medium w-max hover:opacity-80 transition"
-          >
-            simbhaadagency.info@gmail.com
-          </a>
-          <a
-            href="tel:+918790359681"
-            className="block bg-black dark:bg-white text-white dark:text-black px-5 py-3 rounded-full font-medium w-max hover:opacity-80 transition"
-          >
-            +91 8790359681
-          </a>
-        </div>
-
-        {/* Brand Management */}
         <div>
-          <h3 className="text-lg font-semibold mb-3">Brand Management</h3>
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-400">
-            <li>Brand identity</li>
-            <li>Brand strategy</li>
-            <li>Rebranding</li>
-            <li>Packaging design</li>
-            <li>Creative design</li>
-            <li>Marketing collaterals</li>
-          </ul>
-        </div>
-
-        
-
-        {/* Digital Marketing */}
-        <div>
-          <h3 className="text-lg font-semibold mb-3">Digital Marketing</h3>
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-400">
-            <li>Social media management</li>
-            <li>Search engine optimization</li>
-            <li>Email marketing</li>
-            <li>Influencer marketing</li>
-            <li>Performance marketing</li>
-            <li>Press release</li>
-          </ul>
-        </div>
-      </div>
-
-      {/* Bottom Info */}
-      <div className="pt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3 text-sm text-gray-700 dark:text-gray-400">
-        {/* Connect */}
-        <div>
-          <h4 className="text-black dark:text-white font-semibold mb-3">
-            Connect
-          </h4>
+          <h4 className="text-lg font-semibold text-black dark:text-white mb-2">Connect</h4>
           <ul className="space-y-1">
-            
             <li>Email: simbhaadagency.info@gmail.com</li>
             <li>WhatsApp: +91 87903 59681</li>
           </ul>
         </div>
 
-        {/* Company */}
+        {/* Company Links */}
         <div>
-          <h4 className="text-black dark:text-white font-semibold mb-3">
-            Company
-          </h4>
+          <h4 className="text-lg font-semibold text-black dark:text-white mb-2">Company</h4>
           <ul className="space-y-1">
-            <Link to="/about">
-              <li>About</li>
-            </Link>
-            <Link to="/services">
-              <li>Services</li>
-            </Link>
-            <Link to="/contact">
-              <li>Contact Us</li>
-            </Link>
+            <Link to="/about"><li>About</li></Link>
+            <Link to="/services"><li>Services</li></Link>
+            <Link to="/contact"><li>Contact Us</li></Link>
           </ul>
         </div>
       </div>
